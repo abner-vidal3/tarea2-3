@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
-// constante grande para representar el infinito
+#define pii pair<int,int>
+#define vvi vector<vector<int>>
 const int inf = 1e9;
 // implementación de las funciones de costo
-// editarlas para realizar los testcases
 int costo_sub(char a, char b){
     if (a == b) return 0;
     return 2;
@@ -20,8 +20,11 @@ int costo_trans(char a, char b){
 }
 void solve(){
     string a,b;
-    cin >> a >> b;
-    int n = a.size(), m = b.size();
+    int n,m;
+    cin >> n;
+    if (n != 0) cin >> a;
+    cin >> m;
+    if (m != 0) cin >> b;
     vector<vector<int>> dp(n+1,vector<int>(m+1,inf));
     for (int i = 0; i <= n; i++)
         for (int j = 0; j <= m; j++){
@@ -53,7 +56,6 @@ void solve(){
     cout << dp[n][m] << endl;
 }
 signed main(){
-    // optimización para la lectura del input
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
     int t = 1;
